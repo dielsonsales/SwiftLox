@@ -10,6 +10,7 @@ import Foundation
 // MARK: - Constants
 
 enum Constants {
+    static let dataFormatError: Int32 = 65
     static let homeDirectory = FileManager.default.homeDirectoryForCurrentUser
     static let projectDirectory =  homeDirectory.appending(path: "Workspace/iOS/LoxInterpreter/LoxInterpreter")
 }
@@ -18,11 +19,16 @@ enum Constants {
 
 final class Lox {
 
+    private var hadError = false
+
     func runFile(fileName: String) {
         let filePath = Constants.projectDirectory.appending(path: fileName)
         do {
             let fileContent = try String(contentsOf: filePath, encoding: .utf8)
             run(source: fileContent)
+            if hadError {
+                exit(Constants.dataFormatError)
+            }
         } catch {
             print("Error reading file: \(fileName). Error: \(error.localizedDescription)")
         }
@@ -32,6 +38,7 @@ final class Lox {
         print("> ")
         while let line = readLine() {
             run(source: line)
+            hadError = false // Resets the error flag in the interactive loop
         }
     }
 
@@ -48,6 +55,7 @@ final class Lox {
 
     func report(line: Int, where: String, message: String) {
         print("[line " + String(line) + "] Error " + `where` + ": " + message)
+        hadError = true
     }
 
 }
