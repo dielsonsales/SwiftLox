@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		98F0FBA22C0E099C001B77A8 /* LoxInterpreter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LoxInterpreter; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F0FBA52C0E099C001B77A8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		98F0FBAC2C0E0F39001B77A8 /* test.lox */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.lox; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				98F0FBA52C0E099C001B77A8 /* main.swift */,
+				98F0FBAC2C0E0F39001B77A8 /* test.lox */,
 			);
 			path = LoxInterpreter;
 			sourceTree = "<group>";
